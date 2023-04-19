@@ -4,6 +4,10 @@
 #include <string>
 
 using namespace std;
+#define MAX_LINES 1000
+
+
+
 
 class Contacts{
 public:
@@ -16,22 +20,35 @@ public:
         << "Have a nice day" << "\U0001F600" << "!" << endl;
   }
 
-  void viewAllContacts () {
-    deque<string> contacts {};
+  int viewAllContacts () {
+    string filename = "./contactList.txt";
+    ifstream iFile;
+    string array[MAX_LINES];
 
-    fstream contactFile("contactList.txt");
+    iFile.open(filename);
+    if(iFile.fail()){
+      cout << "No such file exists." << endl;
+      
+      return 1;
+    }
+    int lines = 0;
+    while(!iFile.eof()){
+      getline(iFile, array[lines]);
+      lines++;
+      cout << lines << endl;
+      // if(lines == MAX_LINES){
+      //   cout << "Max storage reached" << endl;
+      //   break;
+      // }
+    } 
 
-    string contact {};
+    iFile.close();
 
-    while(contactFile >> contact){
-      contacts.push_back(contact);
+    for (int i = 0; i < lines; i++){
+      cout << array[i] << endl;
     }
 
-    for(string c : contacts){
-      cout << c << endl;
-    }
-    cout << contacts << endl;
-    contactFile.close();
+    return 0;
   }
-
+  
 };

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
 using namespace std;
 #define MAX_LINES 1000
@@ -21,32 +22,16 @@ public:
   }
 
   int viewAllContacts () {
-    string filename = "./contactList.txt";
-    ifstream iFile;
-    string array[MAX_LINES];
-
-    iFile.open(filename);
-    if(iFile.fail()){
-      cout << "No such file exists." << endl;
-      
-      return 1;
+    vector<string> contactArr;
+    ifstream iFile("./Contacts/contactList.txt");
+    string temp {};
+    
+    while(getline(iFile, temp, '\n')){
+      contactArr.push_back(temp);
     }
-    int lines = 0;
-    while(!iFile.eof()){
-      getline(iFile, array[lines]);
-      lines++;
-      cout << lines << endl;
-      // if(lines == MAX_LINES){
-      //   cout << "Max storage reached" << endl;
-      //   break;
-      // }
-    } 
 
-    iFile.close();
-
-    for (int i = 0; i < lines; i++){
-      cout << array[i] << endl;
-    }
+    for (const auto& i : contactArr)
+        std::cout << i << std::endl;
 
     return 0;
   }

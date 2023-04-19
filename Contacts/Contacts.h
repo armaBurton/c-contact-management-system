@@ -1,3 +1,4 @@
+#include <deque> 
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -6,7 +7,7 @@ using namespace std;
 
 class Contacts{
 public:
-  string fname {}, lname {}, email {}, address {}, city {}, state {};
+  string id{}, fname {}, lname {}, email {}, address {}, city {}, state {};
   int phoneNum {}, zipCode {};
 
   void exit () {
@@ -16,8 +17,21 @@ public:
   }
 
   void viewAllContacts () {
-    cout << endl 
-         << "PeePee PooPoo" << endl;
+    deque<string> contacts {};
+
+    fstream contactFile("contactList.txt");
+
+    string contact {};
+
+    while(contactFile >> contact){
+      contacts.push_back(contact);
+    }
+
+    for(string c : contacts){
+      cout << c << endl;
+    }
+    cout << contacts << endl;
+    contactFile.close();
   }
 
 };

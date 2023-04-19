@@ -27,8 +27,9 @@ int main() {
     if (option == "6"){ //exit CMS
       contactList.exit();
       break;
+    } else if (option == "1"){
+      contactList.viewAllContacts();
     }
-
 
   }
 

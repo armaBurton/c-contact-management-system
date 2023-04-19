@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -11,6 +13,11 @@ public:
       cout << endl
         << "Thank you for using the Contact Management System." << endl
         << "Have a nice day" << "\U0001F600" << "!" << endl;
+  }
+
+  void viewAllContacts () {
+    cout << endl 
+         << "PeePee PooPoo" << endl;
   }
 
 };

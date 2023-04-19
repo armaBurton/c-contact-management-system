@@ -12,8 +12,15 @@ using namespace std;
 
 class Contacts{
 public:
-  string id{}, fname {}, lname {}, email {}, address {}, city {}, state {};
-  int phoneNum {}, zipCode {};
+  string id{}, 
+         fname {}, 
+         lname {}, 
+         email {}, 
+         address {}, 
+         city {}, 
+         state {};
+  int phoneNum {}, 
+      zipCode {};
 
   static void exit () {
       cout << endl

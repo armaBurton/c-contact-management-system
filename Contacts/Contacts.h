@@ -15,13 +15,13 @@ public:
   string id{}, fname {}, lname {}, email {}, address {}, city {}, state {};
   int phoneNum {}, zipCode {};
 
-  void exit () {
+  static void exit () {
       cout << endl
         << "Thank you for using the Contact Management System." << endl
         << "Have a nice day" << "\U0001F600" << "!" << endl;
   }
 
-  int viewAllContacts () {
+  static int viewAllContacts () {  //This works but data object is preferred
     vector<string> contactArr;
     ifstream iFile("./Contacts/contactList.txt");
     string temp {};
